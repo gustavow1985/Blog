@@ -1,10 +1,14 @@
 const express = require("express");
 const app = express();
 const connection = require('./database/database');
-const categoriesController = require('./categories/CategoriesController')
-const articlesController = require('./articles/ArticlesController')
+const categoriesController = require('./categories/CategoriesController');
+const articlesController = require('./articles/ArticlesController');
+
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
+
+const Article = require("./articles/Article");
+const Category = require("./categories/Category");
 
 
 //app.use(bodyParser.urlencoded({ extended: false }));

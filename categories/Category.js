@@ -11,4 +11,6 @@ const Category = connection.define('categories', {
     }
 });
 
+// Category.sync({force: true}); //cria tabela novamente sempre que o programa for executado
+
 module.exports = Category;
