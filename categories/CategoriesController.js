@@ -18,7 +18,11 @@ router.post("/categories/save", (req, res) =>{
         })
     } else {
         res.redirect("/admin/categories/new")
-    };
+    }
 });
+
+router.get("/admin/categories", (req, res) => {
+    res.render("admin/categories");
+})
 
 module.exports = router;
