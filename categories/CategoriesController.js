@@ -48,12 +48,16 @@ router.post("/categories/delete", (req, res) => {
 
 router.get("/admin/categories/edit/:id", (req, res) => {
     var id = req.params.id;
-    Category.findByPk(id).then(categoria =>{
-        if (categoria != undefined){
-            res.render("admin/categories/edit", {categoria: categoria});
+    if(isNaN(id)){
+        console.log("NaN");
+        res.redirect("/admin/categories");
+    };
+    Category.findByPk(id).then(category =>{
+        if (category != undefined){
+            res.render("admin/categories/edit", {category: category});
         } else {
-            res.redirect("/admin/categories");
-            console.log("undefined")
+            console.log("undefined");
+            res.redirect("/admin/categories");            
         }
     }).catch(error =>{
         res.redirect("/admin/categories");
