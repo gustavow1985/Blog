@@ -1,12 +1,16 @@
 const express = require('express');
 const router = express.Router();
-
-router.get("/articles", (req, res) => {
-    res.send("Articles router")
-});
+const Category = require("../categories/Category")
 
 router.get("/admin/articles/new", (req, res) => {
-    res.render("admin/articles/new")
-});
+    Category.findAll().then(categories => {
+        res.render("admin/articles/new", { categories })
+    })
+})
+   
+
+// router.get("/admin/articles", (req, res) => {
+//     res.send("Articles router")
+// });
 
 module.exports = router;
