@@ -54,7 +54,7 @@ router.get("/admin/categories/edit/:id", (req, res) => {
     };
     Category.findByPk(id).then(category =>{
         if (category != undefined){
-            res.render("admin/categories/edit", {category: category});
+            res.render("admin/categories/edit", {category});
         } else {
             console.log("undefined");
             res.redirect("/admin/categories");            
@@ -62,6 +62,19 @@ router.get("/admin/categories/edit/:id", (req, res) => {
     }).catch(error =>{
         res.redirect("/admin/categories");
     });
+});
+
+router.post("/categories/update", (req, res) => {
+    var id = req.body.id;
+    var title = req.body.title;
+
+    Category.update({title, slug: slugify(title)}, {
+        where:{
+            id
+        }
+    }).then(()=>{
+        res.redirect("/admin/categories");
+    })
 });
 
 module.exports = router;
