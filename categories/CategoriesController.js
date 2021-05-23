@@ -46,4 +46,18 @@ router.post("/categories/delete", (req, res) => {
     }
 });
 
+router.get("/admin/categories/edit/:id", (req, res) => {
+    var id = req.params.id;
+    Category.findByPk(id).then(categoria =>{
+        if (categoria != undefined){
+            res.render("admin/categories/edit", {categoria: categoria});
+        } else {
+            res.redirect("/admin/categories");
+            console.log("undefined")
+        }
+    }).catch(error =>{
+        res.redirect("/admin/categories");
+    });
+});
+
 module.exports = router;
