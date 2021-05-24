@@ -13,12 +13,20 @@
                 <th>ID</th>
                 <th>Título</th>
                 <th>Slug</th>
-                <th>Category</th>
+                <th>Categoria</th>
                 <th>Ações</th>
             </tr>
         </thead>
         <tbody>
-              
+              <% articles.forEach(article => { %>
+                <tr>
+                    <td><%= article.id %></td>
+                    <td><%= article.title %></td>
+                    <td><%= article.slug %></td>
+                    <td><%= article.categoryId %></td>
+                    <td>Ações</td>   
+                </tr>           
+              <% }) %>
         </tbody>
 
     </table>       
