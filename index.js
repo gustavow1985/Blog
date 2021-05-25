@@ -31,10 +31,25 @@ app.use('/', articlesController);
 
 app.get ("/", (req, res) =>{
     Article.findAll().then(articles => {
-        
-        res.render("index", {articles})
-    })
+    res.render("index", {articles})
+    });
 });
+
+app.get ("/:slug", (req, res) =>{
+    var slug = req.params.slug;
+    Article.findOne({
+        where: { slug }
+    }).then(article => {
+        if(article != undefined){
+            res.render("article", { article })
+        } else {
+            res.redirect("/")
+        }
+    }).catch(err => {
+        res.redirect("/")
+    })
+    }
+);
 
 app.listen(8080, ()=>{
     console.log("The server is online")
