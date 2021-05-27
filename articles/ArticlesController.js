@@ -63,7 +63,7 @@ router.get("/admin/articles/edit/:id", (req, res) =>{
         }
     }).catch(err => {
         res.redirect("/")
-    })
-})
+    });
+});
 
 module.exports = router;
