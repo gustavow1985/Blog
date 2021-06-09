@@ -56,7 +56,7 @@ router.get("/admin/articles/edit/:id", (req, res) =>{
     Article.findByPk(id).then(article =>{
         if(article != undefined){
             Category.findAll().then(categories =>{
-                res.render("admin/articles/edit", { categories })
+                res.render("admin/articles/edit", { categories, article })
             })
         } else {
             res.redirect("/")
