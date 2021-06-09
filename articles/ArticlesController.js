@@ -81,5 +81,34 @@ router.post("/articles/update", (req, res)=> {
     });
 });
 
+router.get("/articles/page/:num", (req, res) => {
+    var page = req.params.num;
+    var limit = 2
+    var offset = 0;
+
+    if(isNaN(page) || page == 1){
+        offset
+    }else{
+        offset = parseInt(page) * limit;
+    }
+
+    Article.findAndCountAll({
+        limit: limit,
+        offset: offset
+    }).then(articles => {
+        
+        var next;
+        if(offset+limit >= articles.count){
+            next = false;            
+        }else{
+            next = true;
+        }
+        var result = {
+            next,
+            articles, 
+        }
+        res.json(result);
+    })
+});
 
 module.exports = router;
