@@ -83,7 +83,7 @@ router.post("/articles/update", (req, res)=> {
 
 router.get("/articles/page/:num", (req, res) => {
     var page = req.params.num;
-    var limit = 2
+    var limit = 2;
     var offset = 0;
 
     if(isNaN(page) || page == 0 || page == 1){
