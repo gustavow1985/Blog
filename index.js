@@ -1,8 +1,11 @@
 const express = require("express");
 const app = express();
 const connection = require('./database/database');
+
 const categoriesController = require('./categories/CategoriesController');
 const articlesController = require('./articles/ArticlesController');
+const usersController = require('./users/UsersController');
+
 
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
@@ -27,6 +30,8 @@ connection
 
 app.use('/', categoriesController);
 app.use('/', articlesController);
+app.use('/', usersController);
+
 
 
 app.get ("/", (req, res) =>{
