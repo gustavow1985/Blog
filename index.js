@@ -13,7 +13,8 @@ app.use(express.static("public"));
 
 //sessions:
 app.use(session({
-    secret: "texoQualquerQueAumentaASegurancaDasSessoes"
+    secret: "texoQualquerQueAumentaASegurancaDasSessoes",
+    cookie: {maxAge: 30000}
 }))
 
 const Article = require("./articles/Article");
