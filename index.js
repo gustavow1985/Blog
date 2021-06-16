@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const connection = require('./database/database');
+const session = require("express-session")
 
 const categoriesController = require('./categories/CategoriesController');
 const articlesController = require('./articles/ArticlesController');
@@ -9,6 +10,11 @@ const usersController = require('./users/UsersController');
 
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
+
+//sessions:
+app.use(session({
+    secret: "texoQualquerQueAumentaASegurancaDasSessoes"
+}))
 
 const Article = require("./articles/Article");
 const Category = require("./categories/Category");
