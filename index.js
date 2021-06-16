@@ -12,7 +12,7 @@ app.use(express.static("public"));
 
 const Article = require("./articles/Article");
 const Category = require("./categories/Category");
-
+const User = require("./users/User");
 
 //app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.urlencoded({ extended: false }));

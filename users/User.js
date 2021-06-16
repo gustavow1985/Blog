@@ -11,6 +11,6 @@ const User = connection.define('users', {
     }
 });
 
-// Category.sync({force: true}); //cria tabela novamente sempre que o programa for executado
+// User.sync({force: true}); //cria tabela novamente sempre que o programa for executado
 
 module.exports = User;
