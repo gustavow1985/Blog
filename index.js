@@ -14,7 +14,9 @@ app.use(express.static("public"));
 //sessions:
 app.use(session({
     secret: "texoQualquerQueAumentaASegurancaDasSessoes",
-    cookie: {maxAge: 30000}
+    cookie: {maxAge: 30000},
+    resave: true,
+    saveUninitialized: true
 }))
 
 const Article = require("./articles/Article");
