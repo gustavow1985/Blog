@@ -14,7 +14,7 @@ app.use(express.static("public"));
 //sessions:
 app.use(session({
     secret: "texoQualquerQueAumentaASegurancaDasSessoes",
-    cookie: {maxAge: 30000},
+    cookie: {maxAge: 3000000}, //tempo de expiração do login
     resave: true,
     saveUninitialized: true
 }))
