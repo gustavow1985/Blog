@@ -39,7 +39,13 @@ app.use('/', categoriesController);
 app.use('/', articlesController);
 app.use('/', usersController);
 
+app.get("/session", (req, res) => {
+   
+});
 
+app.get("/leitura", (req, res) => {
+
+});
 
 app.get ("/", (req, res) =>{
     Article.findAll({
